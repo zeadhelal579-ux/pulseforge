@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Purpose : Unit tests for Domain rules and Application use cases - no real database, no network.
+    Logic   : Domain tests call the entities directly. Use-case tests run the real mediator pipeline
+              (authorization -> validation -> handler) against an in-memory EF database and hand-written fakes for
+              every port Infrastructure would normally provide, so they exercise the same wiring production uses.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Application.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CardioSense.Application\CardioSense.Application.csproj" />
+    <ProjectReference Include="..\..\src\CardioSense.Domain\CardioSense.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!--
+    Purpose : Api layer - the HTTP/WebSocket host. It is the composition root: the only project that references
+              every other one, so it is where Application and Infrastructure are wired together.
+    Logic   : Endpoints stay three or four lines long (take the request, send it to the mediator, translate the
+              Result to HTTP); every business decision lives in Application or Domain.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CardioSense.Application\CardioSense.Application.csproj" />
+    <ProjectReference Include="..\CardioSense.Domain\CardioSense.Domain.csproj" />
+    <ProjectReference Include="..\CardioSense.Infrastructure\CardioSense.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
+  </ItemGroup>
+</Project>

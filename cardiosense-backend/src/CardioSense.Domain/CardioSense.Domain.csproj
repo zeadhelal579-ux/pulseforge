@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Purpose : Domain layer - pure business rules, no framework, no package and no project references by design.
+    Logic   : Dependencies point inward; this project is the innermost circle of the Clean Architecture.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Domain</RootNamespace>
+  </PropertyGroup>
+</Project>

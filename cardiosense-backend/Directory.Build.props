@@ -1,0 +1,13 @@
+<Project>
+  <!--
+    Purpose : Settings shared by every project in the solution (single source of truth).
+    Logic   : Target framework, nullable reference types and implicit usings are decided once here
+              so individual .csproj files only declare what is specific to them.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+  </PropertyGroup>
+</Project>

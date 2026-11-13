@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Purpose : Tests for the pieces of Infrastructure that can be checked without a running database, broker or AI
+              service: message parsing, the AI HTTP client (against a fake HTTP handler), JWT/refresh-token
+              generation, identity error mapping and the shape of the EF Core model.
+    Logic   : This project is an addition to the two test projects in the architecture document. The parser and the AI
+              client are the cleanest things in Infrastructure to test, and the model test catches mapping mistakes
+              (a missing unique index, an accidental cascade delete) before they reach a real database.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Infrastructure.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CardioSense.Application\CardioSense.Application.csproj" />
+    <ProjectReference Include="..\..\src\CardioSense.Domain\CardioSense.Domain.csproj" />
+    <ProjectReference Include="..\..\src\CardioSense.Infrastructure\CardioSense.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

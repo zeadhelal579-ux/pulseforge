@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Purpose : End-to-end tests of the real API: HTTP request -> middleware -> endpoint -> mediator -> EF Core ->
+              SQL Server, and the SignalR hub with a real authenticated connection.
+    Logic   : The API is hosted in memory (WebApplicationFactory) on top of a throw-away SQL Server container
+              (Testcontainers), so the tests need Docker but no manual setup. Only the AI service is replaced by a
+              fake. These tests cover what unit tests cannot: cookies, status codes, ProblemDetails shape, unique
+              indexes, authorization policies, the audit log and the hub's access check.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Api.IntegrationTests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CardioSense.Api\CardioSense.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Testcontainers.MsSql" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

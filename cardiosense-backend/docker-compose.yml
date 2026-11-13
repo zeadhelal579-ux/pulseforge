@@ -1,0 +1,105 @@
+# =============================================================================
+# File    : docker-compose.yml
+# Purpose : One command (`docker compose up --build`) gives a new developer the whole backend: API, SQL Server,
+#           MQTT broker (TLS) and the AI service.
+# Logic   : Start-up order is explicit: SQL Server must be healthy, the dev certificates must exist before the broker
+#           starts, the AI service must be healthy before the API starts. Secrets are never written here: they come
+#           from a `.env` file you create from .env.example (compose refuses to start if one is missing).
+#           Only the API (5000), the broker (8883) and SQL Server (14330, for local tools) are published; the AI
+#           service has NO published port - it is internal and must stay that way.
+# Not for production: TLS certificates are self-signed dev ones, the broker has a single shared user, SQL Server uses
+#           the sa account, and the API runs in the Development environment (demo devices are seeded).
+# =============================================================================
+name: cardiosense
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQLSERVER_SA_PASSWORD:?Set SQLSERVER_SA_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:14330:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  # Reserved for Phase 2 (SignalR backplane when there is more than one API instance, latest-vitals cache).
+  # Nothing connects to it yet, so it is only started with: docker compose --profile phase2 up
+  redis:
+    image: redis:7-alpine
+    profiles: ["phase2"]
+
+  # One-shot job: creates a throw-away CA and a server certificate for the broker, once, into the mqtt-certs volume.
+  certs:
+    image: alpine/openssl:latest
+    entrypoint: ["/bin/sh", "/scripts/generate-dev-certs.sh"]
+    volumes:
+      - ./mosquitto/generate-dev-certs.sh:/scripts/generate-dev-certs.sh:ro
+      - mqtt-certs:/certs
+    restart: "no"
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    depends_on:
+      certs:
+        condition: service_completed_successfully
+    environment:
+      MQTT_USERNAME: ${MQTT_USERNAME:-cardiosense}
+      MQTT_PASSWORD: ${MQTT_PASSWORD:?Set MQTT_PASSWORD in .env}
+    # The password file is built at start-up from the environment, so no credential is ever stored in the repository.
+    command: >
+      sh -c "mosquitto_passwd -b -c /mosquitto/config/passwd \"$$MQTT_USERNAME\" \"$$MQTT_PASSWORD\" &&
+      chown mosquitto:mosquitto /mosquitto/config/passwd &&
+      exec mosquitto -c /mosquitto/config/mosquitto.conf"
+    ports:
+      - "127.0.0.1:8883:8883"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-certs:/mosquitto/certs:ro
+      - mosquitto-data:/mosquitto/data
+
+  ai:
+    build:
+      context: ../cardiosense-ai
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+      ai:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=CardioSense;User Id=sa;Password=${SQLSERVER_SA_PASSWORD};TrustServerCertificate=True"
+      Jwt__SigningKey: ${JWT_SIGNING_KEY:?Set JWT_SIGNING_KEY (at least 32 characters) in .env}
+      AiService__BaseUrl: http://ai:8000
+      Mqtt__Enabled: "true"
+      Mqtt__BrokerHost: mosquitto
+      Mqtt__BrokerPort: "8883"
+      Mqtt__UseTls: "true"
+      Mqtt__Username: ${MQTT_USERNAME:-cardiosense}
+      Mqtt__Password: ${MQTT_PASSWORD}
+      Cors__AllowedOrigins__0: ${FRONTEND_ORIGIN:-http://localhost:5173}
+      Database__Initialization: EnsureCreated
+      # Makes .NET trust the dev CA when it connects to the broker over TLS.
+      SSL_CERT_FILE: /certs/ca.crt
+    ports:
+      - "5000:8080"
+    volumes:
+      - mqtt-certs:/certs:ro
+
+volumes:
+  sqlserver-data:
+  mqtt-certs:
+  mosquitto-data:

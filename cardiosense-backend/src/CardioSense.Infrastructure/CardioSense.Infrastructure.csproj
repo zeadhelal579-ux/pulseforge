@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Purpose : Infrastructure layer - every concrete technology choice (SQL Server, Identity, JWT, SignalR, MQTT, HTTP).
+    Logic   : References Application and Domain only (dependencies point inward). It implements the interfaces that
+              Application and Domain declared; the Api project is the only place that wires them together.
+              The ASP.NET Core shared framework is referenced (not a web SDK) because SignalR, Identity and hosted
+              services live there.
+  -->
+  <PropertyGroup>
+    <RootNamespace>CardioSense.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CardioSense.Application\CardioSense.Application.csproj" />
+    <ProjectReference Include="..\CardioSense.Domain\CardioSense.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="CardioSense.Infrastructure.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mediator.Abstractions" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" />
+    <PackageReference Include="MQTTnet" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+# Test dependencies: `pip install -r requirements-dev.txt`, then `python -m unittest discover -s tests -t .`
+-r requirements.txt
+httpx>=0.27,<1.0
