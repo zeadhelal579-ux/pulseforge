@@ -1,0 +1,16 @@
+{
+  /* Editor-only settings for the tooling config files (vite.config.ts, vitest.config.ts).
+     Not part of `npm run typecheck` / `npm run build`, and it never emits files:
+     a `composite` project built with `tsc -b` would drop vite.config.js next to the .ts file,
+     and Vite would then load that stale .js instead of the .ts. */
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["vite.config.ts", "vitest.config.ts"]
+}
