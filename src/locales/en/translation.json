@@ -1,0 +1,294 @@
+{
+  "common": {
+    "appName": "CardioSense",
+    "loading": "Loading…",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "logout": "Log out",
+    "refresh": "Refresh live data",
+    "language": "Language",
+    "status": {
+      "Stable": "Stable",
+      "Caution": "Caution",
+      "Critical": "Critical"
+    },
+    "theme": {
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode"
+    },
+    "error": {
+      "generic": "Something went wrong. Please try again.",
+      "notFound": "We couldn't find what you were looking for."
+    },
+    "empty": {
+      "noData": "No data yet."
+    }
+  },
+
+  "nav": {
+    "liveMonitoring": "Live Monitoring",
+    "patients": "Patients",
+    "reports": "Reports",
+    "notifications": "Notifications",
+    "comingSoon": "Coming soon",
+    "settings": "Settings",
+    "connectionStatus": "Connection Status",
+    "connection": {
+      "connected": "Connected",
+      "connecting": "Connecting",
+      "reconnecting": "Reconnecting",
+      "disconnected": "Disconnected"
+    },
+    "active": "Active",
+    "clinicalSystemTitle": "Clinical Tele-Cardiology System",
+    "cardiacCareUnit": "Cardiac Care Unit (CCU)"
+  },
+
+  "auth": {
+    "brandSub": "CLINICAL MONITORING SYSTEM",
+    "badge": "Research prototype",
+    "heroHeadline": "Continuous cardiac monitoring, personalized to your risk.",
+    "heroSub": "A wearable ECG platform that adapts electrode placement to each patient's clinical profile, catching ischemic changes before they become emergencies.",
+    "feature1": "Four-electrode ECG with personalized chest-lead placement",
+    "feature2": "Real-time heart rate and oxygen saturation tracking",
+    "feature3": "AI-assisted risk insights (prototype)",
+    "heroFooter": "This is a research prototype and has not been clinically validated.",
+    "tabSignup": "Sign Up",
+    "tabLogin": "Log In",
+    "rolePatient": "Patient",
+    "roleDoctor": "Doctor",
+    "sectionPersonal": "Personal information",
+    "sectionPatientMedical": "Medical & device details",
+    "sectionDoctorProfessional": "Professional details",
+    "sectionSecurity": "Account security",
+    "fields": {
+      "fullName": "Full name",
+      "fullNamePh": "e.g. Ahmed Mostafa Kamal",
+      "phone": "Phone number",
+      "phonePh": "01xxxxxxxxx",
+      "email": "Email",
+      "emailPh": "you@example.com",
+      "age": "Age",
+      "agePh": "e.g. 58",
+      "gender": "Gender",
+      "genderSelect": "Select gender",
+      "genderMale": "Male",
+      "genderFemale": "Female",
+      "nationalId": "National ID",
+      "nationalIdPh": "14-digit national ID",
+      "diagnosis": "Diagnosis / medical history",
+      "diagnosisPh": "e.g. Prior myocardial infarction, hypertension",
+      "medications": "Current medications (optional)",
+      "medicationsPh": "e.g. Bisoprolol 5mg, Aspirin 100mg",
+      "assignedDoctor": "Treating doctor (optional)",
+      "assignedDoctorPh": "Doctor's name — you can link this later",
+      "assignedDoctorHelp": "Don't have one yet? You can add this later from Settings.",
+      "deviceSerial": "Device serial number (optional)",
+      "deviceSerialPh": "e.g. CS-94281-EG",
+      "deviceSerialHelp": "Found on the back of your CardioSense device.",
+      "specialty": "Specialty",
+      "specialtyPh": "e.g. Cardiology Consultant",
+      "license": "Medical syndicate / license number",
+      "licensePh": "Syndicate registration number",
+      "hospital": "Hospital / clinic name",
+      "hospitalPh": "e.g. Cairo University Hospitals",
+      "department": "Department / unit (optional)",
+      "departmentPh": "e.g. Cardiac Care Unit (CCU)",
+      "password": "Password",
+      "passwordPh": "At least 8 characters",
+      "confirmPassword": "Confirm password",
+      "confirmPasswordPh": "Re-enter your password"
+    },
+    "show": "Show",
+    "hide": "Hide",
+    "consent": "I agree that this data will be stored securely and used only for care coordination on CardioSense.",
+    "submitSignup": "Create account",
+    "submitLogin": "Log in",
+    "forgotPassword": "Forgot password?",
+    "switchToLogin": "Already have an account? ",
+    "switchToLoginLink": "Log in",
+    "switchToSignup": "New here? ",
+    "switchToSignupLink": "Create an account",
+    "prototypeNoteSignup": "Prototype — accounts aren't connected to a live server yet.",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "nationalId": "National ID must be 14 digits.",
+      "passwordLength": "Password must be at least 8 characters.",
+      "passwordMatch": "Passwords don't match.",
+      "consent": "Please confirm to continue.",
+      "loginFailed": "Incorrect email or password.",
+      "signupFailed": "We couldn't create your account. Please check your details and try again."
+    }
+  },
+
+  "patient": {
+    "diagnosisLabel": "Diagnosis",
+    "vitals": {
+      "heartRate": "Heart Rate",
+      "spo2": "Oxygen Saturation",
+      "riskScore": "Risk Score",
+      "withinRange": "Within Typical Range",
+      "aboveRange": "Above Typical Range",
+      "belowRange": "Below Typical Range",
+      "notablyLow": "Notably Low"
+    },
+    "ecg": {
+      "leadII": "Lead II",
+      "live": "Live",
+      "calibration": "Calibration",
+      "gain": "Gain",
+      "sampleRate": "Sample Rate",
+      "prInterval": "PR Interval",
+      "qrsDuration": "QRS Duration",
+      "qtQtc": "QT/QTc",
+      "awaitingSignal": "Awaiting live signal — showing a placeholder waveform",
+      "reviewStrip": "Review Strip (Last 15 min)",
+      "freezeWaveform": "Freeze Waveform",
+      "unfreezeWaveform": "Resume Waveform",
+      "logManualEvent": "Log Manual Event"
+    },
+    "hourlyTimeline": {
+      "title": "Hourly Status Timeline",
+      "last24h": "Last 24 Hours",
+      "stable": "Stable",
+      "cautionAlert": "Caution / Alert",
+      "critical": "Critical",
+      "currentHour": "Current Hour (LIVE)",
+      "totalCoverage": "Total Coverage"
+    },
+    "electrode": {
+      "title": "Electrode Status & Sensor Placement",
+      "efficiency": "Efficiency",
+      "contactImpedance": "Electrode placement verified",
+      "reposition": "Check and reposition the electrodes"
+    },
+    "medicalFile": {
+      "title": "Medical File & Device Telemetry",
+      "autoUpdated": "Auto-updated",
+      "medicalHistory": "Medical History",
+      "activeMedications": "Active Medications",
+      "serialNo": "Serial No.",
+      "battery": "Battery",
+      "transmissionProtocol": "Transmission Protocol"
+    },
+    "alertsTimeline": {
+      "title": "Clinical Alerts & Timeline",
+      "recordedEvents": "Recorded Events",
+      "noAlerts": "No clinical events recorded yet."
+    },
+    "vitalsTrend": {
+      "title": "Vitals Trend",
+      "range24h": "24 Hours",
+      "range7d": "7 Days",
+      "range30d": "30 Days",
+      "heartRate": "Heart Rate",
+      "spo2": "SpO2",
+      "empty": "Not enough history yet to chart a trend."
+    },
+    "aiReport": {
+      "title": "CardioSense AI Clinical Reports",
+      "subtitle": "AI-Assisted Insights (Prototype) — not a substitute for clinical judgment",
+      "narrativeSummary": "Patient Status Narrative Summary",
+      "averageDailyHeartRate": "Average Daily Heart Rate",
+      "highestRiskReading": "Highest Risk Reading",
+      "alertsLogged": "Alerts Logged",
+      "exportPng": "Export as Image (PNG)",
+      "print": "Print",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "empty": "No AI report available yet for this period.",
+      "footerDisclaimer": "CardioSense AI-Assisted Insights (Prototype) — not yet clinically validated."
+    },
+    "callDoctor": {
+      "noDoctorAssigned": "No doctor assigned yet. Add one from Settings to enable calling."
+    },
+    "empty": {
+      "title": "No readings yet",
+      "description": "Once your CardioSense device is paired and sending data, your live vitals and ECG will appear here."
+    }
+  },
+
+  "doctor": {
+    "addNewPatient": "Add New Patient",
+    "wardStats": {
+      "totalActivePatients": "Total Active Patients",
+      "wardCapacity": "Ward Capacity",
+      "criticalCases": "Critical Cases (CCU)",
+      "requiresImmediate": "Requires Immediate Intervention",
+      "connectedDevices": "Connected Wireless Devices",
+      "devicesPending": "Devices Pending",
+      "signalAccuracy": "Electromagnetic Signal Accuracy",
+      "optimalInterference": "Optimal Interference Rejection"
+    },
+    "search": {
+      "placeholder": "Search by patient name, national ID, or clinical file number…"
+    },
+    "filters": {
+      "all": "All",
+      "stable": "Stable",
+      "alert": "Alert",
+      "critical": "Critical"
+    },
+    "patientList": {
+      "openFullFile": "Open Full File",
+      "urgentCall": "Urgent Call",
+      "call": "Call",
+      "sendMessage": "Send Message",
+      "liveNow": "Live Now",
+      "file": "File",
+      "empty": {
+        "title": "No patients yet",
+        "description": "Patients you add or that link to your account will show up here."
+      }
+    },
+    "pagination": {
+      "showing": "Showing",
+      "of": "of",
+      "patients": "patients",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "chrome": {
+      "numericRiskScore": "Numeric risk score (doctor only)"
+    },
+    "manualEvent": {
+      "title": "Log Manual Event",
+      "noteLabel": "Clinical note",
+      "notePlaceholder": "Describe what was observed and any action taken…",
+      "severityLabel": "Severity",
+      "severityInfo": "Informational",
+      "severityTransient": "Transient",
+      "severityModerate": "Moderate",
+      "severityCritical": "Critical",
+      "submit": "Log event"
+    },
+    "reviewStripUnavailable": "Reviewing a historical raw strip isn't available yet — the backend doesn't currently persist raw ECG samples (only per-beat feature sets). This would need a new endpoint reading from the short-lived Redis buffer described in backend-database-architecture.md §6."
+  },
+
+  "settings": {
+    "title": "Settings",
+    "devicePairing": {
+      "title": "Device pairing",
+      "description": "Link your CardioSense wearable using the serial number on the back of the device.",
+      "serialNumber": "Device serial number",
+      "serialNumberPh": "e.g. CS-94281-EG",
+      "pairButton": "Pair device",
+      "pairedDevice": "Paired device"
+    },
+    "languagePreference": {
+      "title": "Language",
+      "description": "Choose the language used across CardioSense. This is saved to your profile."
+    },
+    "themePreference": {
+      "title": "Appearance",
+      "description": "Switch between dark and light mode."
+    },
+    "account": {
+      "title": "Account"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens — Tailwind v4 is CSS-first, so these @theme custom properties
+ * ARE the design system: every `bg-accent`, `text-danger`, etc. utility class
+ * used across the app is generated from the values declared here.
+ *
+ * The dark values are copied verbatim from cardiosense_auth.html's :root block
+ * so the rest of the app matches the already-approved login page pixel-for-pixel
+ * instead of introducing a second, slightly-different palette.
+ */
+@theme {
+  --color-bg: #0a0e14;
+  --color-surface: #121821; /* cards, panels */
+  --color-surface-alt: #0d131b; /* inputs, recessed elements */
+  --color-border: #1e2733;
+  --color-border-strong: #26323f;
+
+  --color-accent: #2dd4bf; /* brand teal — doubles as the "stable / positive" status color */
+  --color-accent-strong: #14b8a6; /* button fills, hover states */
+  --color-accent-subtle: color-mix(in oklab, #2dd4bf 12%, transparent);
+
+  --color-warning: #f5a524; /* caution / alert status */
+  --color-danger: #f87171; /* critical status, destructive actions */
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #8b98a9;
+  --color-text-muted: #8798ab;
+
+  --font-sans-en: 'Inter', sans-serif;
+  --font-sans-ar: 'Tajawal', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace; /* serials, version tags, numeric readouts */
+}
+
+/*
+ * Light theme ("daytime ward" mode) — this is the exact extension point
+ * frontend-architecture.md §8 anticipated: re-theming means changing values
+ * here, not hunting through components for hardcoded hex codes. Toggled by
+ * ThemeToggle (shared/components/ThemeToggle.tsx) via `data-theme` on <html>.
+ *
+ * Accent/warning/danger are deepened slightly versus the dark palette to keep
+ * WCAG AA contrast against a white surface — same hue family, same semantic
+ * role, just tuned for the opposite background.
+ */
+:root[data-theme='light'] {
+  --color-bg: #f4f7f8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f1f4f6;
+  --color-border: #e1e7ea;
+  --color-border-strong: #cbd5db;
+
+  --color-accent: #087b72;
+  --color-accent-strong: #0f766e;
+  --color-accent-subtle: color-mix(in oklab, #0d9488 10%, transparent);
+
+  --color-warning: #b45309;
+  --color-danger: #dc2626;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #526277;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Font family follows the active language, not the theme — same behavior as
+   the auth prototype's `body.lang-en` class, just driven by [data-lang] now. */
+body[data-lang='ar'] {
+  font-family: var(--font-sans-ar);
+}
+body[data-lang='en'] {
+  font-family: var(--font-sans-en);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Respect the OS-level reduced-motion preference everywhere, including for
+   the ECG hero strip's CSS keyframe animation on the auth page. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Decorative looping ECG trace on the auth page hero (AuthLayout.tsx).
+ * Ported from cardiosense_auth.html's animated waveform — a "draw-in-then-
+ * loop" stroke-dash animation, purely visual and unrelated to the real
+ * live-data canvas waveform (features/patient-dashboard/components/EcgWaveform.tsx).
+ */
+@keyframes ecg-hero-draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -200;
+  }
+}
+.ecg-hero-path {
+  stroke-dasharray: 1000;
+  animation: ecg-hero-draw 3.5s linear infinite;
+}

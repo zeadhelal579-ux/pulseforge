@@ -1,0 +1,294 @@
+{
+  "common": {
+    "appName": "كاردوسنس",
+    "loading": "جارٍ التحميل…",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "logout": "تسجيل الخروج",
+    "refresh": "تحديث البيانات الحية",
+    "language": "اللغة",
+    "status": {
+      "Stable": "مستقر",
+      "Caution": "تنبيه",
+      "Critical": "حرج"
+    },
+    "theme": {
+      "switchToLight": "التبديل للوضع النهاري",
+      "switchToDark": "التبديل للوضع الليلي"
+    },
+    "error": {
+      "generic": "حصل خطأ ما. من فضلك حاول تاني.",
+      "notFound": "مش لاقيين اللي بتدور عليه."
+    },
+    "empty": {
+      "noData": "لسه مفيش بيانات."
+    }
+  },
+
+  "nav": {
+    "liveMonitoring": "المراقبة الحية",
+    "patients": "المرضى",
+    "reports": "التقارير",
+    "notifications": "الإشعارات",
+    "comingSoon": "قريبًا",
+    "settings": "الإعدادات",
+    "connectionStatus": "حالة الاتصال",
+    "connection": {
+      "connected": "متصل",
+      "connecting": "جاري الاتصال",
+      "reconnecting": "جاري إعادة الاتصال",
+      "disconnected": "غير متصل"
+    },
+    "active": "نشط",
+    "clinicalSystemTitle": "منظومة تيلي-كارديولوجي السريرية",
+    "cardiacCareUnit": "وحدة العناية القلبية المركزة (CCU)"
+  },
+
+  "auth": {
+    "brandSub": "نظام المراقبة السريرية",
+    "badge": "بروتوتايب بحثي",
+    "heroHeadline": "مراقبة قلبية مستمرة، مصممة خصيصًا لحالتك.",
+    "heroSub": "منصة تخطيط قلب قابلة للارتداء بتضبط أماكن الأقطاب حسب الحالة الإكلينيكية لكل مريض، عشان تكتشف التغيرات الإقفارية قبل ما توصل لحالة طارئة.",
+    "feature1": "تخطيط قلب بأربعة أقطاب مع تموضع مخصص على الصدر",
+    "feature2": "متابعة لحظية لمعدل النبض ونسبة الأكسجين",
+    "feature3": "رؤى ذكاء اصطناعي لتقييم الخطورة (بروتوتايب)",
+    "heroFooter": "الموقع ده بروتوتايب بحثي ولسه معتمدش إكلينيكيًا.",
+    "tabSignup": "إنشاء حساب",
+    "tabLogin": "تسجيل الدخول",
+    "rolePatient": "مريض",
+    "roleDoctor": "طبيب",
+    "sectionPersonal": "البيانات الشخصية",
+    "sectionPatientMedical": "البيانات الطبية وتفاصيل الجهاز",
+    "sectionDoctorProfessional": "البيانات المهنية",
+    "sectionSecurity": "تأمين الحساب",
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "fullNamePh": "مثال: أحمد مصطفى كمال",
+      "phone": "رقم الهاتف",
+      "phonePh": "01xxxxxxxxx",
+      "email": "البريد الإلكتروني",
+      "emailPh": "you@example.com",
+      "age": "السن",
+      "agePh": "مثال: 58",
+      "gender": "النوع",
+      "genderSelect": "اختر النوع",
+      "genderMale": "ذكر",
+      "genderFemale": "أنثى",
+      "nationalId": "الرقم القومي",
+      "nationalIdPh": "الرقم القومي (14 رقم)",
+      "diagnosis": "التشخيص / التاريخ المرضي",
+      "diagnosisPh": "مثال: احتشاء عضلة القلب السابق، ضغط دم",
+      "medications": "الأدوية الحالية (اختياري)",
+      "medicationsPh": "مثال: بيسوبرولول 5 مجم، أسبرين 100 مجم",
+      "assignedDoctor": "الطبيب المتابع (اختياري)",
+      "assignedDoctorPh": "اسم الطبيب — تقدر تضيفه لاحقًا",
+      "assignedDoctorHelp": "لسه مفيش طبيب متابع؟ تقدر تضيفه بعدين من الإعدادات.",
+      "deviceSerial": "الرقم التسلسلي للجهاز (اختياري)",
+      "deviceSerialPh": "مثال: CS-94281-EG",
+      "deviceSerialHelp": "موجود على ظهر جهاز كاردوسنس بتاعك.",
+      "specialty": "التخصص",
+      "specialtyPh": "مثال: استشاري أمراض القلب",
+      "license": "رقم نقابة الأطباء / الترخيص",
+      "licensePh": "رقم القيد بالنقابة",
+      "hospital": "اسم المستشفى / العيادة",
+      "hospitalPh": "مثال: مستشفيات جامعة القاهرة",
+      "department": "القسم / الوحدة (اختياري)",
+      "departmentPh": "مثال: وحدة العناية القلبية (CCU)",
+      "password": "كلمة المرور",
+      "passwordPh": "8 حروف على الأقل",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPh": "أعد كتابة كلمة المرور"
+    },
+    "show": "إظهار",
+    "hide": "إخفاء",
+    "consent": "أوافق على تخزين البيانات دي بشكل آمن واستخدامها فقط لأغراض المتابعة والرعاية على منصة كاردوسنس.",
+    "submitSignup": "إنشاء الحساب",
+    "submitLogin": "تسجيل الدخول",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "switchToLogin": "لو عندك حساب بالفعل؟ ",
+    "switchToLoginLink": "سجل دخول",
+    "switchToSignup": "أول مرة هنا؟ ",
+    "switchToSignupLink": "أنشئ حساب",
+    "prototypeNoteSignup": "بروتوتايب — الحسابات لسه مش متصلة بسيرفر حقيقي.",
+    "errors": {
+      "required": "الحقل ده مطلوب.",
+      "email": "اكتب بريد إلكتروني صحيح.",
+      "nationalId": "الرقم القومي لازم يكون 14 رقم.",
+      "passwordLength": "كلمة المرور لازم تكون 8 حروف على الأقل.",
+      "passwordMatch": "كلمتا المرور مش متطابقتين.",
+      "consent": "من فضلك أكّد الموافقة عشان تكمل.",
+      "loginFailed": "البريد الإلكتروني أو كلمة المرور غلط.",
+      "signupFailed": "مقدرناش ننشئ الحساب. من فضلك راجع بياناتك وحاول تاني."
+    }
+  },
+
+  "patient": {
+    "diagnosisLabel": "التشخيص",
+    "vitals": {
+      "heartRate": "معدل النبض",
+      "spo2": "تشبع الأكسجين",
+      "riskScore": "درجة الخطورة",
+      "withinRange": "ضمن المعدل الطبيعي",
+      "aboveRange": "أعلى من المعدل الطبيعي",
+      "belowRange": "أقل من المعدل الطبيعي",
+      "notablyLow": "منخفض بشكل ملحوظ"
+    },
+    "ecg": {
+      "leadII": "المعاير II",
+      "live": "مباشر",
+      "calibration": "معايرة",
+      "gain": "مقياس الجهد",
+      "sampleRate": "معدل أخذ العينات",
+      "prInterval": "فترة PR",
+      "qrsDuration": "مدة QRS",
+      "qtQtc": "QT/QTc",
+      "awaitingSignal": "في انتظار إشارة حية — الموجة المعروضة الآن تجريبية",
+      "reviewStrip": "مراجعة الشريط السابق (آخر 15 دقيقة)",
+      "freezeWaveform": "تجميد الموجة",
+      "unfreezeWaveform": "استئناف الموجة",
+      "logManualEvent": "تسجيل حدث يدوي"
+    },
+    "hourlyTimeline": {
+      "title": "السجل الزمني لحالة المريض",
+      "last24h": "آخر 24 ساعة",
+      "stable": "مستقر",
+      "cautionAlert": "تنبيه / حرج",
+      "critical": "حرج",
+      "currentHour": "الساعة الحالية (مباشر)",
+      "totalCoverage": "إجمالي التغطية"
+    },
+    "electrode": {
+      "title": "حالة الأقطاب وتموضع الحساسات",
+      "efficiency": "الكفاءة",
+      "contactImpedance": "تم التحقق من موضع الأقطاب",
+      "reposition": "راجع موضع الأقطاب وأعد تثبيتها"
+    },
+    "medicalFile": {
+      "title": "الملف الطبي وتيليمتري الجهاز",
+      "autoUpdated": "محدّث تلقائيًا",
+      "medicalHistory": "السجل المرضي",
+      "activeMedications": "الأدوية النشطة",
+      "serialNo": "الرقم التسلسلي",
+      "battery": "طاقة البطارية",
+      "transmissionProtocol": "بروتوكول الإرسال"
+    },
+    "alertsTimeline": {
+      "title": "التنبيهات السريرية والسجل الزمني",
+      "recordedEvents": "أحداث مسجّلة",
+      "noAlerts": "لسه مفيش أحداث سريرية متسجلة."
+    },
+    "vitalsTrend": {
+      "title": "اتجاه المؤشرات الحيوية",
+      "range24h": "24 ساعة",
+      "range7d": "7 أيام",
+      "range30d": "30 يوم",
+      "heartRate": "معدل النبض",
+      "spo2": "الأكسجين",
+      "empty": "لسه مفيش سجل كافي لرسم اتجاه."
+    },
+    "aiReport": {
+      "title": "التقارير السريرية الذكية (CardioSense AI)",
+      "subtitle": "رؤى ذكاء اصطناعي (بروتوتايب) — مش بديل عن القرار الإكلينيكي",
+      "narrativeSummary": "الملخص السردي لحالة المريض",
+      "averageDailyHeartRate": "متوسط النبض اليومي",
+      "highestRiskReading": "أعلى قراءة خطورة",
+      "alertsLogged": "عدد التنبيهات",
+      "exportPng": "تصدير كصورة (PNG)",
+      "print": "طباعة",
+      "daily": "يومي",
+      "weekly": "أسبوعي",
+      "monthly": "شهري",
+      "empty": "لسه مفيش تقرير ذكاء اصطناعي للفترة دي.",
+      "footerDisclaimer": "نظام CardioSense للرؤى المدعومة بالذكاء الاصطناعي (بروتوتايب) — معتمدش إكلينيكيًا لسه."
+    },
+    "callDoctor": {
+      "noDoctorAssigned": "لسه مفيش طبيب متابع متحدد. تقدر تضيفه من الإعدادات عشان يظهر زرار الاتصال."
+    },
+    "empty": {
+      "title": "لسه مفيش قراءات",
+      "description": "بمجرد ما جهاز كاردوسنس بتاعك يترّبط ويبدأ يبعت بيانات، هتلاقي مؤشراتك الحيوية وتخطيط القلب ظاهرين هنا."
+    }
+  },
+
+  "doctor": {
+    "addNewPatient": "إلحاق مريض جديد",
+    "wardStats": {
+      "totalActivePatients": "إجمالي المرضى النشطين",
+      "wardCapacity": "إشغال السعة السريرية",
+      "criticalCases": "الحالات الحرجة (CCU)",
+      "requiresImmediate": "تتطلب تدخل فوري",
+      "connectedDevices": "الأجهزة اللاسلكية المتصلة",
+      "devicesPending": "أجهزة معلّقة",
+      "signalAccuracy": "دقة قراءة الإشارة الكهرومغناطيسية",
+      "optimalInterference": "مقاومة تداخل مثالية"
+    },
+    "search": {
+      "placeholder": "ابحث باسم المريض، الرقم القومي، أو رقم الملف السريري…"
+    },
+    "filters": {
+      "all": "الكل",
+      "stable": "مستقر",
+      "alert": "تنبيه",
+      "critical": "حرج"
+    },
+    "patientList": {
+      "openFullFile": "فتح الملف الكامل",
+      "urgentCall": "مكالمة عاجلة",
+      "call": "اتصال",
+      "sendMessage": "إرسال رسالة",
+      "liveNow": "بث حي الآن",
+      "file": "ملف",
+      "empty": {
+        "title": "لسه مفيش مرضى",
+        "description": "المرضى اللي هتضيفهم أو اللي هيترّبطوا بحسابك هيظهروا هنا."
+      }
+    },
+    "pagination": {
+      "showing": "عرض",
+      "of": "من أصل",
+      "patients": "مريض",
+      "previous": "السابق",
+      "next": "التالي"
+    },
+    "chrome": {
+      "numericRiskScore": "درجة الخطورة الرقمية (للطبيب فقط)"
+    },
+    "manualEvent": {
+      "title": "تسجيل حدث يدوي",
+      "noteLabel": "ملاحظة سريرية",
+      "notePlaceholder": "اوصف اللي لاحظته وأي إجراء اتخذته…",
+      "severityLabel": "شدة الحدث",
+      "severityInfo": "معلومة",
+      "severityTransient": "عابرة",
+      "severityModerate": "متوسطة",
+      "severityCritical": "حرجة",
+      "submit": "تسجيل الحدث"
+    },
+    "reviewStripUnavailable": "مراجعة شريط سابق مسجّل مش متاحة لسه — الباك إند حاليًا مش بيخزن عينات تخطيط القلب الخام (بس مجموعات خصائص كل نبضة). ده هيحتاج endpoint جديد يقرأ من الـ Redis buffer المؤقت المذكور في backend-database-architecture.md §6."
+  },
+
+  "settings": {
+    "title": "الإعدادات",
+    "devicePairing": {
+      "title": "ربط الجهاز",
+      "description": "اربط جهاز كاردوسنس بتاعك باستخدام الرقم التسلسلي الموجود في ظهر الجهاز.",
+      "serialNumber": "الرقم التسلسلي للجهاز",
+      "serialNumberPh": "مثال: CS-94281-EG",
+      "pairButton": "ربط الجهاز",
+      "pairedDevice": "الجهاز المرتبط"
+    },
+    "languagePreference": {
+      "title": "اللغة",
+      "description": "اختر اللغة المستخدمة في كاردوسنس. الاختيار ده بيتحفظ في ملفك الشخصي."
+    },
+    "themePreference": {
+      "title": "المظهر",
+      "description": "بدّل بين الوضع الليلي والنهاري."
+    },
+    "account": {
+      "title": "الحساب"
+    }
+  }
+}
